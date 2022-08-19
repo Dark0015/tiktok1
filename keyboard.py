@@ -14,7 +14,7 @@ def linkKeyboard(userLanguage, video):
     markup = telebot.types.InlineKeyboardMarkup()
 
     markup.add(telebot.types.InlineKeyboardButton(text=language['openInTTBtn'][userLanguage], url=video['url']))
-    markup.add(telebot.types.InlineKeyboardButton(text=language['videoBtn'][userLanguage], url=f"https://t.me/tokmatebot?start=getVideo_{video['id']}"))
+    markup.add(telebot.types.InlineKeyboardButton(text=language['videoBtn'][userLanguage], url=f"http://t.me/Tiktokdark_bot?start=getVideo_{video['id']}"))
     markup.add(telebot.types.InlineKeyboardButton(text=language['joinChannelBtn'][userLanguage], url="https://t.me/h9youtube"), telebot.types.InlineKeyboardButton(text=language['joinDiscussionBtn'][userLanguage], url="https://t.me/h9discussion"))
     markup.add(telebot.types.InlineKeyboardButton(text=language['inlineQueryBtn'][userLanguage], switch_inline_query=''))
 
