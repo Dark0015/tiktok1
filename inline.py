@@ -42,7 +42,7 @@ def inline(inline_query):
         if videoId:
             #! If the video is already in the database
             if fromDb:
-                url = 'https://t.me/tokmatebot?start=getLink_'+ videoId['id']
+                url = 'http://t.me/Tiktokdark_bot?start=getLink_'+ videoId['id']
                 result = telebot.types.InlineQueryResultCachedVideo(id=0, video_file_id=videoId['videoId'], title=videoId['description'], description=language['clickToSend'][userLanguage], reply_markup=resultKeyboard(userLanguage, url))
                 dbSql.increaseCounter('inlineRequestCached')
 
