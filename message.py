@@ -42,12 +42,12 @@ def sendVideo(url, chatId, messageId=None, userLanguage=None):
         bot.send_chat_action(chatId, 'upload_video')
 
         if setRcVideoId:
-            link = f'https://t.me/tokmatebot?start=getLink_{id}'
+            link = f'http://t.me/Tiktokdark_bot?start=getLink_{id}'
             sent = bot.send_video(chatId, videoId, reply_markup=resultKeyboard(userLanguage, link), reply_to_message_id=messageId if chatType == 'groups' else None)
             dbSql.increaseCounter('messageRequest')
 
         else:
-            link = f"https://t.me/tokmatebot?start=getLink_{videoId['id']}"
+            link = f"http://t.me/Tiktokdark_bot?start=getLink_{videoId['id']}"
             sent = bot.send_video(chatId, videoId['videoId'], reply_markup=resultKeyboard(userLanguage, link), reply_to_message_id=messageId if chatType == 'groups' else None)
             dbSql.increaseCounter('messageRequestCached')
 
@@ -101,7 +101,7 @@ def message(message):
             video = dbSql.getVideo(id=id)
 
             if video:
-                url = f"https://t.me/tokmatebot?start=getLink_{video['id']}"
+                url = f"http://t.me/Tiktokdark_bot?start=getLink_{video['id']}"
                 bot.send_video(message.chat.id, video['videoId'], reply_markup=resultKeyboard('english', url))
                 dbSql.increaseCounter('deepLinkRequest')
 
@@ -122,7 +122,7 @@ def message(message):
 
             if video:
                 text = '''
-                <b>👤{}</b>\n\n<b>🔗 TikTok</b>\n<code>{}</code>\n\n<b>🔗 Telegram</b>\n<code>https://t.me/tokmatebot?start=getVideo_{}</code>
+                <b>ðŸ‘¤{}</b>\n\n<b>ðŸ”— TikTok</b>\n<code>{}</code>\n\n<b>ðŸ”— Telegram</b>\n<code>https://t.me/tokmatebot?start=getVideo_{}</code>
                 '''.format(video['description'], video['url'], video['id'])
 
                 bot.send_message(message.chat.id, text, reply_markup=linkKeyboard('english', video))
